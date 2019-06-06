@@ -14,16 +14,22 @@ password = input("Password: ")
 email_from = input("From: ")
 email_to = input("To: ")
 
-#email format
-msg["Subject"] = "Event Planner"
-msg["From"] = email_from
-msg["To"] = email_to
+#email format function
+def gmail_format():
+  msg["Subject"] = "Event Planner"
+  msg["From"] = email_from
+  msg["To"] = email_to
 
-#sending email through smtp
-gmail = smtplib.SMTP("smtp.gmail.com",587)
-gmail.ehlo()
-gmail.starttls()
-gmail.ehlo()
-gmail.login(username,password)
-gmail.sendmail(email_from,email_to,msg.as_string())
-gmail.quit()
+#sending email through smtp function
+#gmail access for less secure apps must be ENABLED
+def gmail_send():
+  gmail = smtplib.SMTP("smtp.gmail.com",587)
+  gmail.ehlo()
+  gmail.starttls()
+  gmail.ehlo()
+  gmail.login(username,password)
+  gmail.sendmail(email_from,email_to,msg.as_string())
+  gmail.quit()
+
+gmail_format()
+gmail_send()
