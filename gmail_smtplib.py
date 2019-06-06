@@ -18,3 +18,12 @@ email_to = input("To: ")
 msg["Subject"] = "Event Planner"
 msg["From"] = email_from
 msg["To"] = email_to
+
+#sending email through smtp
+gmail = smtplib.SMTP("smtp.gmail.com",587)
+gmail.ehlo()
+gmail.starttls()
+gmail.ehlo()
+gmail.login(username,password)
+gmail.sendmail(email_from,email_to,msg.as_string())
+gmail.quit()
