@@ -13,3 +13,8 @@ username = input("Username: ")
 password = input("Password: ")
 email_from = input("From: ")
 email_to = input("To: ")
+
+#email format
+msg["Subject"] = "Event Planner"
+msg["From"] = email_from
+msg["To"] = email_to
